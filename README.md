@@ -28,6 +28,7 @@ With each state, framework will record and mark packets based on their IP addres
 
 ## Sub Detector Modules
 HoneyBear framework has modularity in design, which means each part of HoneyBear will work separately as a module, but they have a unified management. Detector is the heart of the system. As mentioned above, function of detector is not only to manage, collect analysis results from sub detectors but also to control packet flows into each sub detector. 
+
 Each sub detector module will have packet input, separated database and signatures. Each of them will be responsible for a different type of attacks. For example:
 - SQL Injection Detector module.
 - DDoS Detector module.
@@ -37,3 +38,8 @@ Each sub detector module will have packet input, separated database and signatur
 
 Thus, they should be independently developed and will be integrated to framework when they are ready.
 
+## License
+Feel free to do anything
+
+## Info
+Last update 29/1/2016
