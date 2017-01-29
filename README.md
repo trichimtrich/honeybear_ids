@@ -42,4 +42,8 @@ Thus, they should be independently developed and will be integrated to framework
 Feel free to do anything
 
 ## Info
-Last update 29/1/2016
+- Author: trichimtrich/phamminhsang
+- Version: 1.0
+- Last update: 29/1/2016
+
+View document for more detail. Thank you!
