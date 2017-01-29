@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HoneyBear High Level Inteface</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Honey<span class="glyphicon glyphicon-xbt"></span>ear</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li class="active"><a href="/log">Log</a></li>
+      <li><a href="/config">Config</a></li>
+      <li><a href="/about-us">About us</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h1>Log of {{ title }}</h1>
+  <p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date/Time</th>
+        <th>Module Detect</th>
+        <th>Packet (base64)</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+    
+         {% for li in li_log %}
+      <tr>
+        <td><a href="/log/{{ fid }}/{{ li[0] }}">{{ li[0] }}</a></td>
+        <td>{{ li[1] }}</td>
+        <td>{{ li[2] }}</td>
+        <td>{{ li[3] }}</td>
+      </tr>
+
+      {% endfor %}
+
+    </tbody>
+  </table>
+</p>
+
+</div>
+
+</body>
+</html>

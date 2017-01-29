@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HoneyBear High Level Inteface</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Honey<span class="glyphicon glyphicon-xbt"></span>ear</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/log">Log</a></li>
+      <li class="active"><a href="/config">Config</a></li>
+      <li><a href="/about-us">About us</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h1>Config</h1>
+   {% if mess_cont %}
+  <div class="alert alert-{{ mess_type }}">
+  {{ mess_cont }}
+</div>
+{% endif %}
+  <form action="" method="post" name="login">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Module Name</th>
+        <th>Path to shared lib</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+    {% for conf in config %}
+         
+      <tr>
+        <td><input type="text" name="name[]" value="{{ conf[0] }}"></td>
+        <td><input type="text" name="file[]" value="{{ conf[1] }}"></td>
+        <td>
+          <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up"></span></button>
+          <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+        </td>
+
+      </tr>
+
+       {% endfor %}
+
+    </tbody>
+  </table>
+
+      <p>
+        <input type="button" id="add-module" class="btn btn-info" value="Add module">
+        <input type="submit" class="btn btn-primary" value="Save">
+      </p>
+  </form>
+</div>
+
+<script>
+
+$("#add-module").click(function () {
+  $("#table-body").append('<tr><td><input type="text" name="name[]" value=""></td><td><input type="text" name="file[]" value=""></td><td><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up"></span></button> <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td></tr>');
+});
+
+$("#table-body").on("click", ".btn-primary", function() {
+  var p_tr = $(this).parents("tr");
+  var p_tr_prev = p_tr.prev("tr");
+  
+  var zz = p_tr.html();
+  p_tr.html(p_tr_prev.html());
+  p_tr_prev.html(zz);
+
+});
+
+$("#table-body").on("click", ".btn-danger", function() {
+  var p_tr = $(this).parents("tr");
+  p_tr.remove();
+
+});
+
+</script>
+
+</body>
+</html>
