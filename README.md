@@ -32,5 +32,8 @@ Each sub detector module will have packet input, separated database and signatur
 - SQL Injection Detector module.
 - DDoS Detector module.
 - Shellcode Detector module.
+
+> Machine Learning in Sub Detector Module?
+
 Thus, they should be independently developed and will be integrated to framework when they are ready.
-## Machine Learning in Sub Detector Module
+
